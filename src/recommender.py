@@ -45,20 +45,63 @@ class Recommender:
         # TODO: Implement explanation logic
         return "Explanation placeholder"
 
+import csv
+from typing import List, Dict, Tuple
+
 def load_songs(csv_path: str) -> List[Dict]:
-    """
-    Loads songs from a CSV file.
-    Required by src/main.py
-    """
-    # TODO: Implement CSV loading logic
     print(f"Loading songs from {csv_path}...")
-    return []
+    songs = []
+
+    with open(csv_path, newline='', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            song = {
+                "id": int(row["id"]),
+                "title": row["title"],
+                "artist": row["artist"],
+                "genre": row["genre"],
+                "mood": row["mood"],
+                "energy": float(row["energy"]),
+                "tempo_bpm": float(row["tempo_bpm"]),
+                "valence": float(row["valence"]),
+                "danceability": float(row["danceability"]),
+                "acousticness": float(row["acousticness"])
+            }
+            songs.append(song)
+
+    return songs
+
+
+def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, str]:
+    score = 0
+    reasons = []
+
+    # genre match
+    if song["genre"] == user_prefs["genre"]:
+        score += 2.0
+        reasons.append("genre match (+2.0)")
+
+    # mood match
+    if song["mood"] == user_prefs["mood"]:
+        score += 1.5
+        reasons.append("mood match (+1.5)")
+
+    # energy similarity
+    energy_diff = abs(song["energy"] - user_prefs["energy"])
+    energy_score = 1 - energy_diff
+    score += energy_score
+    reasons.append(f"energy similarity (+{energy_score:.2f})")
+
+    return score, ", ".join(reasons)
+
 
 def recommend_songs(user_prefs: Dict, songs: List[Dict], k: int = 5) -> List[Tuple[Dict, float, str]]:
-    """
-    Functional implementation of the recommendation logic.
-    Required by src/main.py
-    """
-    # TODO: Implement scoring and ranking logic
-    # Expected return format: (song_dict, score, explanation)
-    return []
+    scored_songs = []
+
+    for song in songs:
+        score, explanation = score_song(user_prefs, song)
+        scored_songs.append((song, score, explanation))
+
+    scored_songs.sort(key=lambda x: x[1], reverse=True)
+
+    return scored_songs[:k]

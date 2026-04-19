@@ -11,8 +11,7 @@ Your goal is to:
 - Evaluate what your system gets right and wrong
 - Reflect on how this mirrors real world AI recommenders
 
-Replace this paragraph with your own summary of what your version does.
-
+This project builds a simple music recommender system using a content-based filtering approach. The system compares song features such as genre, mood, and energy to a user's preferences and calculates a score for each song. Based on these scores, it ranks songs and returns the top recommendations. This project demonstrates how data can be transformed into personalized suggestions using basic algorithms.
 ---
 
 ## How The System Works
@@ -26,6 +25,20 @@ The UserProfile stores the user’s preferred genre, mood, and target values for
 The recommender calculates a score for each song by awarding points for matching features. Songs receive higher scores if their genre and mood match the user’s preferences. Additional points are added based on how close the song’s energy and valence are to the user’s target values.
 
 After scoring all songs, the system ranks them from highest to lowest score and returns the top results as recommendations.
+
+### Algorithm Recipe
+
+- +2.0 points for a genre match  
+- +1.5 points for a mood match  
+- Energy similarity score based on how close the song’s energy is to the user’s target:
+
+  energy score = 1 − |song energy − user energy|
+
+---
+
+### Potential Bias
+
+This system may over-prioritize genre since it has the highest weight. As a result, songs that match mood or energy but belong to a different genre may be ranked lower. Additionally, the limited dataset can reduce diversity and lead to repetitive recommendations.
 
 Features Used
 
@@ -80,25 +93,19 @@ You can add more tests in `tests/test_recommender.py`.
 
 ## Experiments You Tried
 
-Use this section to document the experiments you ran. For example:
 
-- What happened when you changed the weight on genre from 2.0 to 0.5
-- What happened when you added tempo or valence to the score
-- How did your system behave for different types of users
+- When I reduced the weight of genre from 2.0 to 1.0, the recommendations became more diverse but less accurate.
+- When I increased the importance of energy similarity, the system favored songs with similar intensity but sometimes ignored mood.
+- Testing different user profiles (e.g., energetic pop vs chill lofi) showed that the system correctly adjusted recommendations based on preferences.
 
 ---
 
 ## Limitations and Risks
 
-Summarize some limitations of your recommender.
-
-Examples:
-
-- It only works on a tiny catalog
-- It does not understand lyrics or language
-- It might over favor one genre or mood
-
-You will go deeper on this in your model card.
+- The system relies on a small dataset, which limits the variety of recommendations.
+- It does not consider lyrics, artist popularity, or listening history.
+- It may over-prioritize genre due to its higher weight, reducing diversity.
+- It assumes all users have simple and consistent preferences.
 
 ---
 
@@ -108,10 +115,9 @@ Read and complete `model_card.md`:
 
 [**Model Card**](model_card.md)
 
-Write 1 to 2 paragraphs here about what you learned:
+Through this project, I learned how recommender systems transform user preferences and data into personalized suggestions. I was surprised by how a simple scoring system could produce results that feel meaningful and accurate. At the same time, I saw how biases can easily appear, such as over-prioritizing genre or ignoring other important aspects like diversity.
 
-- about how recommenders turn data into predictions
-- about where bias or unfairness could show up in systems like this
+This project also showed me that even simple algorithms can feel intelligent, but they still lack deeper understanding compared to human judgment. In real-world systems, combining multiple data sources and improving fairness would be important for better recommendations.
 
 
 ---
