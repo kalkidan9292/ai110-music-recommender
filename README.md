@@ -196,14 +196,26 @@ Some prompts:
 
 ## 7. Evaluation
 
-How did you check your system
+The recommender system was tested using three different user profiles: high-energy pop, chill lofi, and intense rock.
 
-Examples:
-- You tried multiple user profiles and wrote down whether the results matched your expectations
-- You compared your simulation to what a real app like Spotify or YouTube tends to recommend
-- You wrote tests for your scoring logic
+For the high-energy pop profile, the system correctly returned songs like "Sunset Dance" and "Sunrise City," which match both genre and mood while also having high energy levels. Songs that matched only one feature ranked lower, showing that the scoring system works as intended.
 
-You do not need a numeric metric, but if you used one, explain what it measures.
+For the chill lofi profile, the recommendations strongly matched expectations. Songs such as "Midnight Coding" and "Library Rain" ranked highest because they matched genre, mood, and energy. This demonstrates that the system effectively captures a relaxed musical vibe.
+
+For the intense rock profile, "Storm Runner" ranked highest due to matching all key features. Other songs that matched only energy or mood appeared lower in the ranking, confirming that the system correctly balances multiple features.
+
+Overall, the results show that the recommender produces accurate and consistent suggestions, though the strong weighting of genre can sometimes limit diversity.
+
+## Evaluation Screenshots
+
+### High-Energy Pop Profile
+![Pop Profile](image1.png)
+
+### Chill Lofi Profile
+![Lofi Profile](image2.png)
+
+### Intense Rock Profile
+![Rock Profile](image3.png)
 
 ---
 
