@@ -210,14 +210,13 @@ Overall, the results show that the recommender produces accurate and consistent 
 ## Evaluation Screenshots
 
 ### High-Energy Pop Profile
-![Pop Profile](image1.png)
+![Pop Profile](https://raw.githubusercontent.com/kalkidan9292/ai110-music-recommender/main/image1.png)
 
 ### Chill Lofi Profile
-![Lofi Profile](./image2)
+![Lofi Profile](https://raw.githubusercontent.com/kalkidan9292/ai110-music-recommender/main/image2.png)
 
 ### Intense Rock Profile
-![Rock Profile](./image3)
----
+![Rock Profile](https://raw.githubusercontent.com/kalkidan9292/ai110-music-recommender/main/image3.png)---
 
 ## 8. Future Work
 
