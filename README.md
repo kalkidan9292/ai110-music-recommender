@@ -206,6 +206,7 @@ For the intense rock profile, "Storm Runner" ranked highest due to matching all 
 
 Overall, the results show that the recommender produces accurate and consistent suggestions, though the strong weighting of genre can sometimes limit diversity.
 
+
 ## Evaluation Screenshots
 
 ### High-Energy Pop Profile
