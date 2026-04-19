@@ -216,7 +216,6 @@ Overall, the results show that the recommender produces accurate and consistent 
 
 ### Intense Rock Profile
 ![Rock Profile](image3.png)
-
 ---
 
 ## 8. Future Work
