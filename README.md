@@ -122,91 +122,6 @@ This project also showed me that even simple algorithms can feel intelligent, bu
 
 ---
 
-## 7. `model_card_template.md`
-
-Combines reflection and model card framing from the Module 3 guidance. :contentReference[oaicite:2]{index=2}  
-
-```markdown
-# 🎧 Model Card - Music Recommender Simulation
-
-## 1. Model Name
-
-Give your recommender a name, for example:
-
-> VibeFinder 1.0
-
----
-
-## 2. Intended Use
-
-- What is this system trying to do
-- Who is it for
-
-Example:
-
-> This model suggests 3 to 5 songs from a small catalog based on a user's preferred genre, mood, and energy level. It is for classroom exploration only, not for real users.
-
----
-
-## 3. How It Works (Short Explanation)
-
-Describe your scoring logic in plain language.
-
-- What features of each song does it consider
-- What information about the user does it use
-- How does it turn those into a number
-
-Try to avoid code in this section, treat it like an explanation to a non programmer.
-
----
-
-## 4. Data
-
-Describe your dataset.
-
-- How many songs are in `data/songs.csv`
-- Did you add or remove any songs
-- What kinds of genres or moods are represented
-- Whose taste does this data mostly reflect
-
----
-
-## 5. Strengths
-
-Where does your recommender work well
-
-You can think about:
-- Situations where the top results "felt right"
-- Particular user profiles it served well
-- Simplicity or transparency benefits
-
----
-
-## 6. Limitations and Bias
-
-Where does your recommender struggle
-
-Some prompts:
-- Does it ignore some genres or moods
-- Does it treat all users as if they have the same taste shape
-- Is it biased toward high energy or one genre by default
-- How could this be unfair if used in a real product
-
----
-
-## 7. Evaluation
-
-The recommender system was tested using three different user profiles: high-energy pop, chill lofi, and intense rock.
-
-For the high-energy pop profile, the system correctly returned songs like "Sunset Dance" and "Sunrise City," which match both genre and mood while also having high energy levels. Songs that matched only one feature ranked lower, showing that the scoring system works as intended.
-
-For the chill lofi profile, the recommendations strongly matched expectations. Songs such as "Midnight Coding" and "Library Rain" ranked highest because they matched genre, mood, and energy. This demonstrates that the system effectively captures a relaxed musical vibe.
-
-For the intense rock profile, "Storm Runner" ranked highest due to matching all key features. Other songs that matched only energy or mood appeared lower in the ranking, confirming that the system correctly balances multiple features.
-
-Overall, the results show that the recommender produces accurate and consistent suggestions, though the strong weighting of genre can sometimes limit diversity.
-
-```
 ## Evaluation Screenshots
 
 ### High-Energy Pop Profile
@@ -220,21 +135,15 @@ Overall, the results show that the recommender produces accurate and consistent 
 
 ## 8. Future Work
 
-If you had more time, how would you improve this recommender
+If I had more time, I would improve this recommender by adding more advanced features such as tempo ranges, lyrics, and user listening history. 
 
-Examples:
-
-- Add support for multiple users and "group vibe" recommendations
-- Balance diversity of songs instead of always picking the closest match
-- Use more features, like tempo ranges or lyric themes
+I would also improve the diversity of recommendations so the same songs do not appear repeatedly across different profiles. Another improvement would be supporting more complex user preferences, such as combining multiple moods or genres.
 
 ---
 
 ## 9. Personal Reflection
 
-A few sentences about what you learned:
+Through this project, I learned how recommender systems use data and simple rules to create personalized suggestions. I was surprised by how effective a basic scoring system can be at capturing a musical “vibe.”  
 
-- What surprised you about how your system behaved
-- How did building this change how you think about real music recommenders
-- Where do you think human judgment still matters, even if the model seems "smart"
+At the same time, I saw how easily bias can appear when certain features are weighted more heavily. This changed how I think about real music apps, since they likely use much more complex data and models to improve accuracy and fairness.
 
