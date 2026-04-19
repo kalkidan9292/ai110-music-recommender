@@ -17,17 +17,29 @@ Replace this paragraph with your own summary of what your version does.
 
 ## How The System Works
 
-Explain your design in plain language.
+This recommender system suggests songs based on how well they match a user’s preferences using a content-based filtering approach. Instead of using other users’ data, the system compares features of each song directly to the user’s taste profile.
 
-Some prompts to answer:
+Each Song in the system includes features such as genre, mood, energy, tempo, and valence. These features help describe the overall style and “vibe” of the song.
 
-- What features does each `Song` use in your system
-  - For example: genre, mood, energy, tempo
-- What information does your `UserProfile` store
-- How does your `Recommender` compute a score for each song
-- How do you choose which songs to recommend
+The UserProfile stores the user’s preferred genre, mood, and target values for numerical features like energy and valence.
 
-You can include a simple diagram or bullet list if helpful.
+The recommender calculates a score for each song by awarding points for matching features. Songs receive higher scores if their genre and mood match the user’s preferences. Additional points are added based on how close the song’s energy and valence are to the user’s target values.
+
+After scoring all songs, the system ranks them from highest to lowest score and returns the top results as recommendations.
+
+Features Used
+
+Song features:
+              genre
+              mood
+              energy
+              tempo_bpm
+              valence
+UserProfile features:
+              preferred_genre
+              preferred_mood
+              target_energy
+              target_valence
 
 ---
 
