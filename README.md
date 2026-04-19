@@ -210,13 +210,13 @@ Overall, the results show that the recommender produces accurate and consistent 
 ## Evaluation Screenshots
 
 ### High-Energy Pop Profile
-![Pop Profile](./image1.png)
+![Pop Profile](./image1)
 
 ### Chill Lofi Profile
-![Lofi Profile](./image2.png)
+![Lofi Profile](./image2)
 
 ### Intense Rock Profile
-![Rock Profile](./image3.png)
+![Rock Profile](./image3)
 ---
 
 ## 8. Future Work
