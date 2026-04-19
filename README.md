@@ -216,7 +216,7 @@ Overall, the results show that the recommender produces accurate and consistent 
 ![Lofi Profile](https://raw.githubusercontent.com/kalkidan9292/ai110-music-recommender/main/image2.png)
 
 ### Intense Rock Profile
-![Rock Profile](https://raw.githubusercontent.com/kalkidan9292/ai110-music-recommender/main/image3.png)---
+![Rock Profile](https://raw.githubusercontent.com/kalkidan9292/ai110-music-recommender/main/image3.png)
 
 ## 8. Future Work
 
