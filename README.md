@@ -147,3 +147,27 @@ Through this project, I learned how recommender systems use data and simple rule
 
 At the same time, I saw how easily bias can appear when certain features are weighted more heavily. This changed how I think about real music apps, since they likely use much more complex data and models to improve accuracy and fairness.
 
+### Confidence Scoring
+
+In addition to ranking songs, the system includes a confidence score that estimates how well each recommendation matches the user’s preferences.  
+
+The confidence score is calculated by normalizing the final score, helping indicate how strong or reliable each recommendation is.
+
+## Architecture Overview
+
+The system follows a simple pipeline:
+
+User Input → Song Scoring → Ranking → Output Recommendations  
+                          ↓  
+                   Confidence Evaluation  
+
+User preferences are compared against song features, scores are calculated, and the top matches are returned along with explanations and confidence scores.
+
+## Sample Interaction
+
+Input:
+{"genre": "pop", "mood": "happy", "energy": 0.85}
+
+Output:
+Sunset Dance - Score: 4.50 | Confidence: 0.90  
+Because: genre match (+2.0), mood match (+1.5), energy similarity (+0.98)

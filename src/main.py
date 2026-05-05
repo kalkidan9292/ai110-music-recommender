@@ -28,8 +28,9 @@ def main() -> None:
         recommendations = recommend_songs(user_prefs, songs, k=5)
 
         for rec in recommendations:
-            song, score, explanation = rec
-            print(f"{song['title']} - Score: {score:.2f}")
+            song, score, explanation, confidence = rec
+
+            print(f"{song['title']} - Score: {score:.2f} | Confidence: {confidence:.2f}")
             print(f"Because: {explanation}")
             print()
 

@@ -72,7 +72,7 @@ def load_songs(csv_path: str) -> List[Dict]:
     return songs
 
 
-def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, str]:
+def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, str, float]:
     score = 0
     reasons = []
 
@@ -91,16 +91,15 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, str]:
     energy_score = 1 - energy_diff
     score += energy_score
     reasons.append(f"energy similarity (+{energy_score:.2f})")
+    confidence = min(score / 5, 1.0)
+    return score, ", ".join(reasons), confidence
 
-    return score, ", ".join(reasons)
-
-
-def recommend_songs(user_prefs: Dict, songs: List[Dict], k: int = 5) -> List[Tuple[Dict, float, str]]:
+def recommend_songs(user_prefs: Dict, songs: List[Dict], k: int = 5) -> List[Tuple[Dict, float, str, float]]:
     scored_songs = []
 
     for song in songs:
-        score, explanation = score_song(user_prefs, song)
-        scored_songs.append((song, score, explanation))
+        score, explanation, confidence = score_song(user_prefs, song)
+        scored_songs.append((song, score, explanation, confidence))
 
     scored_songs.sort(key=lambda x: x[1], reverse=True)
 
